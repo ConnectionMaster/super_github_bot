@@ -29,9 +29,9 @@ runs:
   - ${{ inputs.repository }}
   - ${{ inputs.project }}
   - --issue
-  - ${{ inputs.issue }}
+  - ${{ inputs.issue || 0 }}
   - --pull-request
-  - ${{ inputs.pull_request }}
+  - ${{ inputs.pull_request || 0 }}
   env:
     BOT_APP_ID: ${{ inputs.app_id }}
     BOT_PRIVATE_KEY: ${{ inputs.private_key }}
