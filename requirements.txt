@@ -1,0 +1,3 @@
+cryptography==2.9.2
+PyGithub==1.51
+PyJWT==1.7.1

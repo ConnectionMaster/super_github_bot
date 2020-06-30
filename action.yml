@@ -1,0 +1,37 @@
+name: "Add to Project"
+description: "Set a default project board for issues or pull requests to be addded to."
+inputs:
+  repository:
+    description: "repository path, use {{ github.repository }}"
+    required: true
+  project:
+    description: "Organization-level project name"
+    required: true
+  private_key:
+    description: "Application Private Key"
+    required: true
+  app_id:
+    description: "Application ID"
+    required: true
+  issue:
+    description: "issue number, use {{ github.event.issue.number }}"
+    required: false
+	default: 0
+  pull_request:
+    description: "pull request number, use {{ github.event.pull_request.number }}"
+    required: false
+	default: 0
+runs:
+  using: "docker"
+  image: 'Dockerfile'
+  args:
+  - add_to_project
+  - {{ inputs.repository }}
+  - {{ inputs.project }}
+  - --issue
+  - {{ inputs.issue }}
+  - --pull-request
+  - {{ inputs.pull_request }}
+  env:
+    BOT_APP_ID: {{ inputs.app_id }}
+    BOT_PRIVATE_KEY: {{ inputs.private_key }}
