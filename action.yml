@@ -26,12 +26,12 @@ runs:
   image: 'Dockerfile'
   args:
   - add_to_project
-  - {{ inputs.repository }}
-  - {{ inputs.project }}
+  - ${{ inputs.repository }}
+  - ${{ inputs.project }}
   - --issue
-  - {{ inputs.issue }}
+  - ${{ inputs.issue }}
   - --pull-request
-  - {{ inputs.pull_request }}
+  - ${{ inputs.pull_request }}
   env:
-    BOT_APP_ID: {{ inputs.app_id }}
-    BOT_PRIVATE_KEY: {{ inputs.private_key }}
+    BOT_APP_ID: ${{ inputs.app_id }}
+    BOT_PRIVATE_KEY: ${{ inputs.private_key }}
